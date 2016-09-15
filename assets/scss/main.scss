@@ -1,0 +1,154 @@
+.clearfix::after {
+    content:"";
+    display:table;
+    clear:both;
+}
+
+@font-face {
+    font-family: League Gothic;
+    src: url('../fonts/LeagueGothic-Regular.otf');   
+}
+
+/*****************
+Variables 
+*****************/
+
+$tablet-breakpoint: 750px;
+$desktop-breakpoint: 960px;
+$orange-color: rgba(242,100,34,1);
+
+
+/*****************
+Mixins
+*****************/
+
+@mixin bp-small {
+    @media (max-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin bp-large {
+    @media (max-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+
+
+/*****************
+Pages
+*****************/
+
+@import "films";
+@import "about";
+
+
+/*****************
+Universal Styles
+*****************/
+
+.transition {
+    display: none;
+}
+
+h1 {
+    font-family: 'League Gothic';
+}
+
+body, html {
+    height:100vh;
+    width:100%;
+    overflow: hidden;
+}
+
+
+/******************
+Main Style
+******************/
+
+#hero {
+    height: 100%;
+    background: url('../img/home-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.9);
+    border-radius: 0;
+    z-index: 2;
+    
+    .logo {
+        float: left;
+        width: 100px;
+    }
+    
+    .pull-left {
+        margin-left: 30px;
+    
+        img {
+            height: 50px;
+        }
+    }
+    
+    li.active {
+        border-bottom: 4px solid $orange-color;
+        
+        a {
+            color: $orange-color !important;
+        }
+    }
+    
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    background-color: rgba(40,40,40,0.9);
+}
+
+.navbar-collapse.collapse {
+    transition: 0.5s all ease-out;
+}
+
+.navbar-collapse.collapse.hidden {
+    opacity: 0 !important;
+}
+
+
+
+.title {
+    color: #fff;
+    text-align:center;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-weight: 300;
+    letter-spacing: 2px;
+    
+    margin-top: 200px;
+    
+    h1 {
+        font-size: 5em;
+        padding-bottom: 20px;
+    }
+    
+    .underline {
+        height: 10px;
+        width: 50%;
+        margin: 0 25%;
+        background-color: $orange-color;
+    }
+    
+    p {
+        width: 80%;
+        margin: 40px 10%;
+        line-height: 2em;
+        
+        span {
+            color: $orange-color;
+        }
+    }
+}

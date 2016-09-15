@@ -1,0 +1,420 @@
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@font-face {
+  font-family: League Gothic;
+  src: url("../fonts/LeagueGothic-Regular.otf");
+}
+
+/*****************
+Variables 
+*****************/
+/*****************
+Mixins
+*****************/
+/*****************
+Pages
+*****************/
+html, body {
+  background: black;
+}
+
+#hero-films {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgba(25, 25, 25, 0.8), rgba(25, 25, 25, 0.8)), url("../img/films-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  transition: 0.5s all ease-out;
+  z-index: 2;
+}
+
+#hero-films.active {
+  transform: translateX(-80%);
+}
+
+@media (max-width: 960px) {
+  #hero-films.active {
+    transform: translateY(-90%);
+  }
+}
+
+#film-categories {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: 0.5s all ease-out;
+}
+
+#film-categories a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: #f26422;
+  font-size: 4em;
+  padding: 15px;
+  text-transform: uppercase;
+  font-family: 'League Gothic';
+  transition: 0.5s all ease-out;
+}
+
+#film-categories a:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#film-categories.active {
+  width: 20%;
+  left: 80%;
+  margin-left: 0;
+}
+
+#film-categories.active a {
+  font-size: 1.5em;
+}
+
+.films-sub {
+  visibility: hidden;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  height: 100%;
+  width: 80%;
+  background: black;
+  transition: 0.5s all ease-out;
+}
+
+@media (max-width: 750px) {
+  .films-sub {
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 960px) {
+  .films-sub {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+  }
+}
+
+.films-sub.active {
+  visibility: visible;
+  left: 20%;
+  top: 0;
+}
+
+@media (max-width: 960px) {
+  .films-sub.active {
+    top: 10%;
+    left: 0;
+  }
+}
+
+.films-sub figure {
+  float: left;
+  width: 33.3%;
+  height: 33.3%;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px 0px 0px 6px #030303;
+  -moz-box-shadow: inset 0px 0px 0px 6px #030303;
+  box-shadow: inset 0px 0px 0px 6px #030303;
+}
+
+@media (max-width: 750px) {
+  .films-sub figure {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.films-sub figure img {
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
+  height: 100%;
+  -webkit-filter: grayscale(100%);
+}
+
+@media (max-width: 750px) {
+  .films-sub figure img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.films-sub figure:hover > img {
+  transform: scale(1.2);
+  -webkit-filter: grayscale(50%);
+}
+
+.films-sub figure:hover > h2 {
+  transform: translateX(0) translateY(-400%);
+  opacity: 1;
+  background: rgba(242, 100, 34, 0.8);
+}
+
+@media (max-width: 960px) {
+  .films-sub figure:hover > h2 {
+    transform: translateX(0) translateY(-200px);
+  }
+}
+
+.films-sub figure h2 {
+  display: inline-block;
+  width: 100%;
+  transform: translateX(-100%) translateY(-400%);
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  color: #fff;
+  font-weight: 300;
+  font-family: helvetica;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+  padding: 20px 0;
+  background: transparent;
+}
+
+#back-button {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  width: 20%;
+  color: #f26422;
+  font-size: 3em;
+  text-align: center;
+  opacity: 0;
+}
+
+@media (max-width: 960px) {
+  #back-button {
+    bottom: 10px;
+    transform: rotate(90deg);
+  }
+}
+
+#back-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+#back-button.active {
+  opacity: 1;
+}
+
+#view-askew-page figure {
+  margin: 0;
+}
+
+#view-askew-page img#zack-and-miri {
+  margin-left: -25px;
+}
+
+@media (max-width: 750px) {
+  #view-askew-page img#zack-and-miri {
+    margin-left: 0;
+  }
+}
+
+#true-north-page figure {
+  margin: 0 33.3%;
+}
+
+@media (max-width: 960px) {
+  #true-north-page figure {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+#true-north-page img {
+  height: 120%;
+}
+
+@media (max-width: 960px) {
+  #true-north-page img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+#other-films-page figure {
+  margin: 5% 33.3%;
+}
+
+@media (max-width: 960px) {
+  #other-films-page figure {
+    width: 75%;
+    margin: 0 12.5%;
+  }
+}
+
+@media (max-width: 750px) {
+  #other-films-page figure {
+    width: 100%;
+    height: 250px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  #other-films-page img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.wrap {
+  background: #fff;
+  height: 100vh;
+  width: 100vw;
+}
+
+.jumbotron {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/kevin-smith-set.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-top: 40px;
+  height: 100%;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  border-bottom: 5px solid #f26422;
+  padding: 10px 0;
+}
+
+.jumbotron p {
+  color: #fff;
+  font-size: 1em;
+}
+
+.jumbotron .btn {
+  display: block;
+  margin: 10px 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  border-color: transparent;
+  border: 1px solid #f26422;
+  color: #fff;
+  text-transform: lowercase;
+  font-size: 1em;
+}
+
+.jumbotron .btn:hover {
+  background-color: #f26422;
+}
+
+/*****************
+Universal Styles
+*****************/
+.transition {
+  display: none;
+}
+
+h1 {
+  font-family: 'League Gothic';
+}
+
+body, html {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/******************
+Main Style
+******************/
+#hero {
+  height: 100%;
+  background: url("../img/home-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 0;
+  z-index: 2;
+}
+
+.navbar .logo {
+  float: left;
+  width: 100px;
+}
+
+.navbar .pull-left {
+  margin-left: 30px;
+}
+
+.navbar .pull-left img {
+  height: 50px;
+}
+
+.navbar li.active {
+  border-bottom: 4px solid #f26422;
+}
+
+.navbar li.active a {
+  color: #f26422 !important;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+.navbar-collapse.collapse {
+  transition: 0.5s all ease-out;
+}
+
+.navbar-collapse.collapse.hidden {
+  opacity: 0 !important;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-top: 200px;
+}
+
+.title h1 {
+  font-size: 5em;
+  padding-bottom: 20px;
+}
+
+.title .underline {
+  height: 10px;
+  width: 50%;
+  margin: 0 25%;
+  background-color: #f26422;
+}
+
+.title p {
+  width: 80%;
+  margin: 40px 10%;
+  line-height: 2em;
+}
+
+.title p span {
+  color: #f26422;
+}
